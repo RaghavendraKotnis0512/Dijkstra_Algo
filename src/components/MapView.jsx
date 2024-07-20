@@ -18,7 +18,7 @@ const MapView = () => {
 
             const routingControl = L.Routing.control({
                 waypoints: markers.map(marker => L.latLng(marker.position[0], marker.position[1])),
-                routeWhileDragging: true,
+                routeWhileDragging: false,
                 createMarker: () => null, // Prevent adding default markers
             }).addTo(map);
 
@@ -31,7 +31,8 @@ const MapView = () => {
             container.style.borderRadius = '10px';
             container.style.boxShadow = '0 0 15px rgba(0, 0, 0, 0.2)';
             container.style.padding = '10px';
-
+            container.style.maxHeight='200px'
+            container.style.overflowY = 'auto';
             // Apply custom styles to the alternative routes
             const alts = container.querySelectorAll('.leaflet-routing-alt');
             alts.forEach(alt => {
@@ -79,7 +80,7 @@ const MapView = () => {
     };
 
     const handleStartMapping = () => {
-        if (markers.length >= 2) {
+        if (markers.length === 2) {
             setStartRouting(true);
         } else {
             window.alert('Please add at least two markers to start mapping');
