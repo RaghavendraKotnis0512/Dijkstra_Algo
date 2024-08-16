@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { MapContainer, TileLayer, Marker, Polyline, useMapEvents, Popup  } from 'react-leaflet';
+import React, { useState, useEffect } from 'react';
+import { MapContainer, TileLayer, Marker, Polyline, useMapEvents, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css'; 
 import axios from 'axios';
 import L from 'leaflet';
-import './MapView.css'; 
 import 'tailwindcss/tailwind.css'; 
+import './MapView.css'; 
 
 const startIcon = new L.Icon({
   iconUrl: 'https://cdn-icons-png.flaticon.com/512/684/684908.png', 
@@ -28,6 +28,48 @@ const LocationSelector = ({ onLocationSelect }) => {
       onLocationSelect(e.latlng);
     },
   });
+  return null;
+};
+
+const Routing = ({ map, markers }) => {
+  useEffect(() => {
+    if (map && markers.length === 2) {
+      const routingControl = L.Routing.control({
+        waypoints: markers.map(marker => L.latLng(marker.position[0], marker.position[1])),
+        routeWhileDragging: false,
+        createMarker: () => null, 
+      }).addTo(map);
+
+      const container = routingControl.getContainer();
+      container.style.display = 'flex';
+      container.style.flexDirection = 'row';
+      container.style.flexWrap = 'wrap';
+      container.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+      container.style.borderRadius = '10px';
+      container.style.boxShadow = '0 0 15px rgba(0, 0, 0, 0.2)';
+      container.style.padding = '10px';
+      container.style.maxHeight = '200px';
+      container.style.overflowY = 'auto';
+
+      const alts = container.querySelectorAll('.leaflet-routing-alt');
+      alts.forEach(alt => {
+        alt.style.color = '#007bff';
+        alt.style.margin = '5px';
+        alt.style.flex = '1 1 auto';
+      });
+
+      const geocoders = container.querySelectorAll('.leaflet-routing-geocoders');
+      geocoders.forEach(geocoder => {
+        geocoder.style.fontSize = '14px';
+        geocoder.style.padding = '5px';
+        geocoder.style.display = 'flex';
+        geocoder.style.flexDirection = 'row';
+        geocoder.style.flexWrap = 'wrap';
+      });
+
+      return () => map.removeControl(routingControl);
+    }
+  }, [map, markers]);
 
   return null;
 };
@@ -122,7 +164,7 @@ const MapView = () => {
     <div className="flex flex-col items-center p-8 bg-gradient-to-r from-teal-200 to-blue-300 min-h-screen gap-20">
       <div className="max-w-4xl w-full bg-white shadow-lg rounded-lg p-8 mb-8 border border-gray-300 mx-auto">
         <div className="text-center">
-          <h1 className="text-5xl font-extrabold mb-4 text-teal-800">Dijkstra's Path Navigator</h1>
+          <h1 className="text-5xl font-extrabold mb-4 text-teal-800">Dijkstra's Algorithm Path Finder</h1>
           <p className="text-lg text-gray-800">Plot two markers on the map to visualize the shortest path between them using Dijkstra’s algorithm.</p>
         </div>
 
@@ -181,19 +223,15 @@ const MapView = () => {
           Start Mapping
         </button>
         <button onClick={clearMarkers} className="bg-red-600 text-white py-3 px-8 rounded-lg hover:bg-red-700 transition duration-300 shadow-lg transform hover:scale-105">
-          Reset
+          Reset Markers
         </button>
+        {distance && (
+          <div className="bg-teal-200 p-4 rounded-lg shadow-lg text-teal-800 text-center mt-6">
+            <h3 className="text-lg font-semibold">Shortest Path Distance:</h3>
+            <p className="text-3xl font-extrabold">{distance} km</p>
+          </div>
+        )}
       </div>
-
-      {distance && (
-      <div className="max-w-4xl w-full bg-white shadow-lg rounded-lg p-6 border border-gray-300 mx-auto">
-        <div className="border border-gray-400 p-4 rounded-lg">
-          <p className="text-center text-gray-800 text-2xl font-semibold">
-            Route distance: {distance} km
-          </p>
-        </div>
-      </div>
-      )}
     </div>
   );
 };
