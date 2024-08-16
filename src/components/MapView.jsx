@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Polyline, useMapEvents, Popup } from 'react-leaflet';
+import React, { useState } from 'react';
+import { MapContainer, TileLayer, Marker, Polyline, useMapEvents, Popup  } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css'; 
 import axios from 'axios';
 import L from 'leaflet';
@@ -29,116 +29,7 @@ const LocationSelector = ({ onLocationSelect }) => {
     },
   });
 
-<<<<<<< HEAD
   return null;
-=======
-            const routingControl = L.Routing.control({
-                waypoints: markers.map(marker => L.latLng(marker.position[0], marker.position[1])),
-                routeWhileDragging: false,
-                createMarker: () => null, // Prevent adding default markers
-            }).addTo(map);
-
-            // Apply custom styles to the routing container
-            const container = routingControl.getContainer();
-            container.style.display = 'flex';
-            container.style.flexDirection = 'row';
-            container.style.flexWrap = 'wrap';
-            container.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
-            container.style.borderRadius = '10px';
-            container.style.boxShadow = '0 0 15px rgba(0, 0, 0, 0.2)';
-            container.style.padding = '10px';
-            container.style.maxHeight='200px'
-            container.style.overflowY = 'auto';
-            // Apply custom styles to the alternative routes
-            const alts = container.querySelectorAll('.leaflet-routing-alt');
-            alts.forEach(alt => {
-                alt.style.color = '#007bff';
-                alt.style.margin = '5px';
-                alt.style.flex = '1 1 auto';
-            });
-
-            // Apply custom styles to the geocoders
-            const geocoders = container.querySelectorAll('.leaflet-routing-geocoders');
-            geocoders.forEach(geocoder => {
-                geocoder.style.fontSize = '14px';
-                geocoder.style.padding = '5px';
-                geocoder.style.display = 'flex';
-                geocoder.style.flexDirection = 'row';
-                geocoder.style.flexWrap = 'wrap';
-            });
-
-            return () => map.removeControl(routingControl);
-        }, [map]);  // Remove unnecessary dependencies
-
-        return null;
-    }
-
-    const AddMarker = () => {
-        useMapEvents({
-            click(e) {
-                if (markers.length < 2) {
-                    const newMarker = {
-                        position: [e.latlng.lat, e.latlng.lng],
-                        popup: `Marker at ${e.latlng.lat}, ${e.latlng.lng}`
-                    };
-                    setMarkers([...markers, newMarker]);
-                } else {
-                    window.alert('Cannot add more than two markers');
-                }
-            }
-        });
-        return null;
-    };
-
-    const clearMarkers = () => {
-        setMarkers([]);
-        setStartRouting(false); // Reset routing state when clearing markers
-    };
-
-    const handleStartMapping = () => {
-        if (markers.length === 2) {
-            setStartRouting(true);
-        } else {
-            window.alert('Please add at least two markers to start mapping');
-        }
-    };
-
-    return (
-        <div style={{ height: '90vh', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <MapContainer
-                center={[20.5937, 78.9629]}
-                zoom={5}
-                style={{ height: '90%', width: '80%', marginTop: '30px' }}
-            >
-                <TileLayer
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                />
-                <AddMarker />
-                {markers.map((marker, index) => (
-                    <Marker key={index} position={marker.position}>
-                        <Popup>{marker.popup}</Popup>
-                    </Marker>
-                ))}
-                {startRouting && <Routing />}
-            </MapContainer>
-            <div style={{ marginTop: '10px', display: 'flex', flexDirection: 'row', gap: '10px' }}>
-                <button
-                    onClick={handleStartMapping}
-                    style={buttonStyles}
-                >
-                    Start mapping
-                </button>
-                <button
-                    onClick={clearMarkers}
-                    style={buttonStyles}
-                >
-                    Reset
-                </button>
-            </div>
-        </div>
-    );
->>>>>>> c45a67e4aa9b5a945a6e1a54db7bf6cc573728f0
 };
 
 const MapView = () => {
@@ -231,7 +122,7 @@ const MapView = () => {
     <div className="flex flex-col items-center p-8 bg-gradient-to-r from-teal-200 to-blue-300 min-h-screen gap-20">
       <div className="max-w-4xl w-full bg-white shadow-lg rounded-lg p-8 mb-8 border border-gray-300 mx-auto">
         <div className="text-center">
-          <h1 className="text-5xl font-extrabold mb-4 text-teal-800">Dijkstra's Algorithm Path Finder</h1>
+          <h1 className="text-5xl font-extrabold mb-4 text-teal-800">Dijkstra's Path Navigator</h1>
           <p className="text-lg text-gray-800">Plot two markers on the map to visualize the shortest path between them using Dijkstra’s algorithm.</p>
         </div>
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
@@ -10,19 +11,25 @@ const Navbar = () => {
             justifyContent: 'space-between',
             alignItems: 'center',
             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-            
             top: 0,
             width: '100%',
             zIndex: 1000,
         }}>
-            <h1 style={{
+            <Link to='/' style={{
                 fontSize: '24px',
                 fontWeight: 'bold',
                 color: '#61dafb',
+                textDecoration: 'none',
+                transition: 'color 0.3s ease',
                 margin: 0,
+                padding: '10px 20px',
+                borderRadius: '5px',
+                backgroundColor: '#20232a',
+                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                display: 'inline-block',
             }}>
-                Dijkstra’s Path Finder
-            </h1>
+                Dijkstra's Path Navigator
+            </Link>
             <ul style={{
                 listStyle: 'none',
                 padding: 0,
@@ -31,20 +38,19 @@ const Navbar = () => {
                 gap: '20px',
             }}>
                 <li>
-                    <a href="#about" style={{
+                    <Link to="/About" style={{
                         textDecoration: 'none',
                         color: '#fff',
                         fontSize: '18px',
                         transition: 'color 0.3s ease',
-                    }}>About</a>
-                </li>
-                <li>
-                    <a href="#how-it-works" style={{
-                        textDecoration: 'none',
-                        color: '#fff',
-                        fontSize: '18px',
-                        transition: 'color 0.3s ease',
-                    }}>How It Works</a>
+                        padding: '8px 16px',
+                        borderRadius: '4px',
+                        display: 'inline-block',
+                        backgroundColor: '#333',
+                        boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
+                    }}>
+                        About
+                    </Link>
                 </li>
             </ul>
         </nav>
@@ -52,4 +58,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
