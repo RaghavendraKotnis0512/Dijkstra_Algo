@@ -1,14 +1,14 @@
-import './App.css';
+// src/App.js
+import React from 'react';
 import MapView from './components/MapView';
-import Navbar from './components/Navbar';
 
 function App() {
-  return (
-    <div className="App" style={{height:'100vh',width:'100%'}}>
-    <Navbar/>
-     <MapView/>
-    </div>
-  );
+    return (
+        <div className="App">
+            <MapView />
+           
+        </div>
+    );
 }
 
 export default App;

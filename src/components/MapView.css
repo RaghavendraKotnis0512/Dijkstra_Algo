@@ -1,0 +1,75 @@
+
+.map-view-container {
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Background gradient */
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .instructions {
+    text-align: center;
+    margin-top: 20px;
+    max-width: 800px;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .instructions h2 {
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .instructions ol {
+    list-style-type: decimal;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    color: #555;
+  }
+  
+  .map-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .map {
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .controls {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+  }
+  
+  .distance-info {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+  }
+  
