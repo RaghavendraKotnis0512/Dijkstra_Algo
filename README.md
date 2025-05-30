@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# DIJKSTRA_ALGO
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> **Navigate smarter, find paths with ease.**
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Overview
 
-### `npm start`
+**Dijkstra_Algo** is a powerful developer tool designed to simplify pathfinding on real-world maps using Dijkstra’s shortest path algorithm. It integrates interactive mapping and algorithm visualization, making it perfect for both learning and real-world applications.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🔍 Why Dijkstra_Algo?
 
-### `npm test`
+This project empowers developers and learners to:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 🗺️ **Interactive Mapping**: Place markers and visualize routes on real maps.
+- 🚀 **Dijkstra's Algorithm**: Efficiently calculates the shortest paths in a weighted graph.
+- 🌐 **Leaflet Integration**: Leverages Leaflet for dynamic and accurate map rendering.
+- 📊 **Performance Monitoring**: Captures key web vitals for a smooth user experience.
+- 🧭 **User-Friendly UI**: Clean navigation for better usability.
+- ✅ **Testing Framework**: Built-in testing ensures code reliability and maintainability.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📦 Built With
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- JavaScript
+- React
+- Leaflet
+- Axios
+- npm
+- JSON
+- Markdown
+- Autoprefixer
+- PostCSS
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 📁 Table of Contents
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- [Overview](#-overview)
+- [Why Dijkstra_Algo](#-why-dijkstra_algo)
+- [Getting Started](#-getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Testing](#testing)
+- [Contact](#contact)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🛠️ Getting Started
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Prerequisites
 
-## Learn More
+Make sure you have the following installed:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Node.js
+- npm
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+### Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Run the following commands to set up the project locally:
 
-### Analyzing the Bundle Size
+```bash
+# Clone the repository
+git clone https://github.com/RaghavendraKotnis0512/Dijkstra_Algo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# Navigate to the project directory
+cd Dijkstra_Algo
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Install dependencies
+npm install
